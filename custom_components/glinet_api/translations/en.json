@@ -1,0 +1,80 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "GL.iNet Router",
+        "description": "Connect to your GL.iNet router's local admin interface.",
+        "data": {
+          "host": "Host/IP address",
+          "password": "Admin password"
+        },
+        "data_description": {
+          "host": "Default: 192.168.8.1",
+          "password": "The router admin password (same as web UI)"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Re-authenticate GL.iNet",
+        "description": "The session for **{host}** has expired. Enter the admin password to reconnect.",
+        "data": {
+          "password": "Admin password"
+        }
+      },
+      "reconfigure": {
+        "title": "Reconfigure GL.iNet",
+        "description": "Update the connection settings for **{host}**.",
+        "data": {
+          "host": "Host/IP address",
+          "password": "Admin password"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Unable to connect to the router. Check the host address and network.",
+      "invalid_auth": "Invalid password. Check the admin password.",
+      "unknown": "Unexpected error. Check the logs for details."
+    },
+    "abort": {
+      "already_configured": "This router (MAC {mac}) is already configured.",
+      "reauth_successful": "Re-authentication successful."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "battery_percent": {"name": "Battery"},
+      "battery_temperature": {"name": "Battery temperature"},
+      "charge_cycles": {"name": "Charge cycles"},
+      "uptime": {"name": "Uptime"},
+      "load_1min": {"name": "CPU load (1 min)"},
+      "memory_total": {"name": "Memory total"},
+      "memory_free": {"name": "Memory free"},
+      "temperature": {"name": "SoC temperature"},
+      "carrier": {"name": "Carrier"},
+      "network_type": {"name": "Network type"},
+      "rsrp": {"name": "RSRP"},
+      "rsrq": {"name": "RSRQ"},
+      "sinr": {"name": "SINR"},
+      "rssi": {"name": "RSSI"},
+      "signal_level": {"name": "Signal level"},
+      "apn": {"name": "APN"},
+      "wan_ip": {"name": "WAN IP"},
+      "tailscale_ip": {"name": "Tailscale IP"},
+      "wifi_clients": {"name": "Wi-Fi clients"},
+      "firmware_version": {"name": "Firmware version"},
+      "charging_status": {"name": "Charging status"}
+    },
+    "binary_sensor": {
+      "wan_connected": {"name": "WAN connected"},
+      "tailscale_connected": {"name": "Tailscale connected"},
+      "firmware_safe": {"name": "Firmware safe"},
+      "wifi_2g_enabled": {"name": "2.4 GHz Wi-Fi"},
+      "wifi_5g_enabled": {"name": "5 GHz Wi-Fi"},
+      "charging": {"name": "Charging"}
+    },
+    "switch": {
+      "wifi_2g": {"name": "2.4 GHz Wi-Fi"},
+      "wifi_5g": {"name": "5 GHz Wi-Fi"},
+      "tailscale": {"name": "Tailscale VPN"}
+    }
+  }
+}

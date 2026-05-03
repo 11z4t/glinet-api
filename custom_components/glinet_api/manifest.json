@@ -1,0 +1,21 @@
+{
+  "domain": "glinet_api",
+  "name": "GL.iNet Router (glinet_api)",
+  "version": "0.1.0",
+  "codeowners": ["@4recon"],
+  "config_flow": true,
+  "dhcp": [
+    {
+      "macaddress": "D4AD20*",
+      "registered_devices": true
+    },
+    {
+      "macaddress": "94B97E*",
+      "registered_devices": true
+    }
+  ],
+  "documentation": "https://github.com/11z4t/glinet-api",
+  "integration_type": "device",
+  "iot_class": "local_polling",
+  "requirements": ["aiohttp>=3.9.0"]
+}
