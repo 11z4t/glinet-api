@@ -1,52 +1,52 @@
-# GL.iNet Router — Home Assistant Integration
+# GL.iNet Router – integration för Home Assistant
 
 [![hacs_badge](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://github.com/hacs/integration)
 
-Local integration for GL.iNet routers. Monitors status and controls Wi-Fi and Tailscale VPN directly from Home Assistant — no cloud required.
+Lokal integration för GL.iNet-routrar. Övervaka status och styr wifi och Tailscale VPN direkt från Home Assistant, utan molntjänst.
 
-## Features
+## Funktioner
 
-- **Sensors**: uptime, CPU load, memory, SoC temperature, cellular signal (RSRP/RSRQ/SINR/RSSI), carrier, APN, WAN IP, Tailscale IP, Wi-Fi client count, firmware version, battery (for mobile routers)
-- **Binary sensors**: WAN connected, Tailscale connected, 2.4 GHz / 5 GHz Wi-Fi enabled, charging, firmware safe
-- **Switches**: toggle 2.4 GHz Wi-Fi, 5 GHz Wi-Fi, Tailscale VPN
+- **Sensorer:** drifttid, processorbelastning, minne, systemkretsens temperatur, mobilsignal (RSRP, RSRQ, SINR och RSSI), operatör, APN, WAN-IP, Tailscale-IP, antal wifi-klienter, version av den inbyggda programvaran och batteristatus för mobila routrar.
+- **Binära sensorer:** WAN-anslutning, Tailscale-anslutning, aktivering av wifi på 2,4 respektive 5 GHz, laddning och säkerhetsstatus för den inbyggda programvaran.
+- **Strömbrytare:** aktivera eller avaktivera wifi på 2,4 GHz, wifi på 5 GHz och Tailscale VPN.
 
-## Tested devices
+## Testade enheter
 
-| Model | Notes |
-|-------|-------|
-| GL-XE3000 (Puli AX) | Full support including cellular + battery |
-| Other GL.iNet routers | Basic support (cellular/battery sensors unavailable) |
+| Modell | Kommentar |
+|---|---|
+| GL-XE3000 (Puli AX) | Fullständigt stöd, inklusive mobilanslutning och batteri |
+| Andra GL.iNet-routrar | Grundläggande stöd; sensorer för mobilanslutning och batteri är inte tillgängliga |
 
 ## Installation
 
-### Via HACS (recommended)
+### Via HACS, rekommenderad metod
 
-1. In HACS → **Custom repositories** → add `https://github.com/11z4t/glinet-api` → category **Integration**
-2. Install **GL.iNet Router**
-3. Restart Home Assistant
+1. Öppna **Custom repositories** i HACS, lägg till `https://github.com/11z4t/glinet-api` och välj kategorin **Integration**.
+2. Installera **GL.iNet Router**.
+3. Starta om Home Assistant.
 
-### Manual
+### Manuell installation
 
-Copy `custom_components/glinet_api/` to your HA `config/custom_components/` directory and restart.
+Kopiera `custom_components/glinet_api/` till katalogen `config/custom_components/` i din Home Assistant-installation och starta om.
 
-## Configuration
+## Konfiguration
 
-**Settings → Devices & Services → Add Integration → GL.iNet Router**
+Öppna **Inställningar → Enheter och tjänster → Lägg till integration → GL.iNet Router**.
 
-| Field | Description |
-|-------|-------------|
-| Host/IP | Router LAN address (default: `192.168.8.1`) |
-| Admin password | Same as the router web UI password |
+| Fält | Beskrivning |
+|---|---|
+| Värd/IP | Routerns LAN-adress; standardvärdet är `192.168.8.1` |
+| Administratörslösenord | Samma lösenord som används i routerns webbgränssnitt |
 
-## Authentication
+## Autentisering
 
-Uses GL.iNet's local JSON-RPC 2.0 API with challenge-response authentication (MD5/SHA256/SHA512 depending on firmware). No credentials are stored in plaintext.
+Integrationen använder GL.iNets lokala JSON-RPC 2.0-API med utmaning–svar-autentisering (MD5, SHA256 eller SHA512 beroende på versionen av den inbyggda programvaran). Inga autentiseringsuppgifter lagras i klartext.
 
-## Update intervals
+## Uppdateringsintervall
 
-- Fast poll (30 s): connectivity, Wi-Fi, Tailscale, cellular signal, battery
-- Slow poll (6 h): firmware version and safety check
+- **Var 30:e sekund:** anslutningar, wifi, Tailscale, mobilsignal och batteri.
+- **Var sjätte timme:** version av den inbyggda programvaran och säkerhetskontroll.
 
-## License
+## Licens
 
 MIT
